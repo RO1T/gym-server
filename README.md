@@ -12,8 +12,3 @@ go build
 go install
 
 health api
-
-## Заметки по проекту
-
-1. Нет обработчиков для таблицы users
-2. Нет корректное добавление в таблицу stat. [statsController:44], а stat взаимодействуюет с таблицей users [statsController:69]
