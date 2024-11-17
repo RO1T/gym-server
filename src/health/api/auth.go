@@ -7,16 +7,11 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"regexp"
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"
 )
 
-type Pattern struct {
-	re     *regexp.Regexp
-	method string
-}
 
 var JwtAuthentication = func(next http.Handler) http.Handler {
 
