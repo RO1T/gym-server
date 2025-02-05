@@ -29,11 +29,11 @@ type EmailConfirmDto struct {
 }
 
 type StatDto struct {
-	ID        uint      `json:"id"`
-	VideoId   uint      `json:"video_id"`
-	UserId    uint      `json:"user_id"`
-	Type      string    `json:"type"`
-	CreatedAt time.Time `json:"created_at"`
+	ID      uint      `json:"id"`
+	VideoId uint      `json:"video_id"`
+	UserId  uint      `json:"user_id"`
+	Type    string    `json:"type"`
+	Time    time.Time `json:"created_at"`
 }
 
 type StatDetailDto struct {
