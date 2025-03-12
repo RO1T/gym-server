@@ -2,7 +2,3 @@ gym-server/.env
 gym-admin-panel/.env
 .idea
 .database
-gym-server/upload/**
-gym-server/pkg/**
-gym-server/bin/**
-health
