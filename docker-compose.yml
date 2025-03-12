@@ -1,9 +1,8 @@
 
 services:
-  db:
-    container_name: db
-    restart: always
-    image: postgres
+  postgres:
+    container_name: postgres
+    image: postgres:latest
     volumes:
       - .:/docker-entrypoint-initdb.d
     environment:
@@ -13,13 +12,29 @@ services:
       PGDATA: "/var/lib/postgresql/data/pgdata"
     ports:
       - 5436:5432
+    healthcheck:
+      test: "pg_isready -h postgres -p 5432 -q -U postgres"
+      interval: 1s
+      timeout: 3s
+      retries: 5
 
-  health:
-    build: ./
+  gym-server:
+    container_name: gym-server
+    build: ./gym-server
     command: health api
     ports:
       - 8083:8083
     depends_on:
-      - db
+      - postgres
     env_file: 
-      - .env
+      - gym-server/.env
+
+  gym-admin:
+    container_name: gym-admin-panel
+    build:
+      context: ./gym-admin-panel # путь к директории с фронтендом и Dockerfile
+    ports:
+      - 8080:80
+    depends_on:
+      - gym-server
+

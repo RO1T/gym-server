@@ -1,7 +1,7 @@
 FROM golang:alpine
 
-WORKDIR /gymnastics-golang-main
-COPY ./ /gymnastics-golang-main
+WORKDIR /gym-server
+COPY ./ /gym-server
 
 RUN go mod download
 RUN go get .
